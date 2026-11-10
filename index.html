@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EKIA อี่เกีย — Signature Coffee ภูผาม่าน</title>
+<meta name="description" content="EKIA อี่เกีย คาเฟ่ริมบึงที่ภูผาม่าน ขอนแก่น กาแฟ Signature และจุดชมค้างคาวบินออกจากถ้ำยามเย็น เปิดทุกวัน">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Thai:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A1410; --ink-2:#100C09; --cream:#EFE6D8; --paper:#F7F1E7;
+  --text:#3B3128; --muted:#5F5245; --on-dark:#E8DFD1; --on-dark-muted:#B5A894; --on-dark-faint:#93876F;
+  --line:#D6C8B2; --line-dark:#3A2F26; --gold:#C9A46A; --gold-deep:#7A5C2A;
+  --display:'Cormorant Garamond','Noto Serif Thai',serif; --thai:'Noto Serif Thai','Cormorant Garamond',serif; --body:'IBM Plex Sans Thai',system-ui,sans-serif;
+  --wrap:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-weight:400;font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.eyebrow{margin:0 0 14px;font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor;opacity:.7}
+.dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--thai);font-weight:500;line-height:1.3;margin:0}
+h2{font-size:clamp(30px,3.6vw,44px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 32px;border-radius:0;font-family:var(--body);font-size:14px;font-weight:500;letter-spacing:.14em;text-decoration:none;border:1px solid var(--gold);color:var(--ink);background:transparent;transition:background .2s ease,color .2s ease}
+.btn:hover{background:var(--gold);color:var(--ink)}
+.btn-red{background:var(--gold);color:var(--ink)}
+.btn-red:hover{background:#B8925A}
+.btn-line{border-color:var(--gold);color:inherit}
+.dark{background:var(--ink);color:var(--on-dark)}
+.dark h2{color:#F4ECDF}
+.dark .btn-line{color:#F4ECDF}
+section{scroll-margin-top:72px}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold)}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:currentColor;opacity:.55}
+.rule i{width:7px;height:7px;border:1px solid currentColor;transform:rotate(45deg);display:block}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(26,20,16,.95);backdrop-filter:blur(8px);color:var(--on-dark);border-bottom:1px solid rgba(201,164,106,.35)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.logo{display:flex;align-items:flex-end;gap:10px;text-decoration:none;color:#fff;padding:6px 0}
+.logo img{height:50px;width:auto}
+.logo span{font-family:var(--thai);font-size:15px;color:var(--on-dark-muted);padding-bottom:2px}
+.menu{display:flex;align-items:center;gap:30px;font-size:14px;letter-spacing:.08em}
+.menu a{text-decoration:none;color:var(--on-dark);padding:10px 0}
+.menu a:not(.btn):hover{color:var(--gold)}
+.menu .btn{min-height:42px;padding:0 22px;color:var(--gold);background:transparent}
+.menu .btn:hover{background:var(--gold);color:var(--ink)}
+.burger{display:none;background:none;border:0;color:var(--gold);width:44px;height:44px;cursor:pointer;padding:10px}
+.burger svg{width:24px;height:24px}
+
+/* hero */
+.hero{position:relative;min-height:min(860px,100vh);display:flex;flex-direction:column;justify-content:center;color:#fff;overflow:hidden;background:var(--ink)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.hero::before{content:"";position:absolute;inset:0;background:rgba(18,13,9,.62);z-index:1}
+.hero::after{content:"";position:absolute;inset:22px;border:1px solid rgba(201,164,106,.45);z-index:2;pointer-events:none}
+.hero-body{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:120px;padding-bottom:120px;text-align:center}
+.hero h1{margin:0;line-height:0}
+.hero h1 img{height:clamp(52px,9vw,140px);width:auto}
+.hero .rule{width:min(460px,70vw);margin-top:44px}
+.hero-bar{position:relative;z-index:3;border-top:1px solid rgba(201,164,106,.35);background:rgba(18,13,9,.5);margin:0 22px 22px}
+.hero-bar .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 32px;padding-top:18px;padding-bottom:18px;font-size:14px;letter-spacing:.04em;color:var(--on-dark);text-align:center}
+.hero-bar p{margin:0}.hero-bar strong{color:var(--gold);font-weight:500}
+
+/* sections */
+.pad{padding-top:112px;padding-bottom:112px}
+.head-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 48px;margin-bottom:48px}
+.head-row p.lead{margin:0;color:var(--muted);max-width:480px}
+
+/* must try */
+.paper{background:var(--paper)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.card{margin:0;display:flex;flex-direction:column;gap:16px}
+.card .ph{position:relative;overflow:hidden;padding:8px;border:1px solid var(--line);background:var(--paper)}
+.card img{width:100%;height:400px;object-fit:cover;transition:transform .6s ease}
+.card:hover img{transform:scale(1.03)}
+.tag{position:absolute;top:20px;left:20px;background:var(--ink);color:var(--gold);font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.24em;padding:5px 12px}
+.card figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.card figcaption span:first-child{font-family:var(--display);font-weight:500;font-size:22px}
+.card .price{font-family:var(--display);font-weight:600;font-size:20px;color:var(--gold-deep)}.card .tbc{color:var(--muted);font-size:15px}
+
+/* bats */
+.split{display:flex;flex-wrap:wrap;align-items:center;gap:72px}
+.split>*{min-width:0}
+.bats-text{flex:1 1 440px;display:flex;flex-direction:column;gap:22px}
+.bats-text p.body{margin:0;color:var(--on-dark-muted);font-size:18px;max-width:520px}
+.facts{display:flex;flex-wrap:wrap;gap:40px;border-top:1px solid var(--line-dark);padding-top:24px;margin-top:6px}
+.facts small{display:block;font-size:12px;letter-spacing:.24em;color:var(--on-dark-faint)}
+.facts b{font-family:var(--thai);font-weight:500;font-size:22px;color:var(--gold)}
+.bats-video{flex:0 1 380px;margin:0 auto;width:100%;padding:10px;border:1px solid rgba(201,164,106,.5)}
+.bats-video video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#26201A}
+
+/* story */
+.story-img{flex:1 1 420px;padding:10px;border:1px solid var(--line)}
+.story-img img{width:100%;height:540px;object-fit:cover;object-position:center 30%}
+.story-text{flex:1 1 440px;display:flex;flex-direction:column;gap:20px}
+.story-text p{margin:0;color:var(--text)}
+.story-text blockquote{margin:12px 0 0;font-family:var(--thai);font-weight:400;font-size:24px;line-height:1.6;color:var(--gold-deep);border-left:1px solid var(--gold);padding-left:22px}
+.letters{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:1px solid var(--ink);margin-top:88px}
+.letters div{padding:28px 24px 0 0}
+.letters b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:72px;line-height:1;color:var(--gold-deep)}
+.letters p{margin:10px 0 0;font-family:var(--display);font-weight:600;font-size:22px}
+.letters span{color:var(--muted);font-size:15px}
+
+/* menu */
+.menu-grid{display:flex;flex-wrap:wrap;gap:72px;align-items:flex-start}
+.menu-list{flex:2 1 480px;min-width:0;display:flex;flex-direction:column;gap:48px}
+.group-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.group-head h3{font-family:var(--display);font-weight:600;font-size:30px}
+.group-head span{font-size:14px;color:var(--muted)}
+.item{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.item p{margin:0}.item .en{font-family:var(--display);font-weight:600;font-size:21px}.item .th{font-size:14px;color:var(--muted)}
+.item .p{font-family:var(--display);font-weight:600;font-size:24px;color:var(--gold-deep);white-space:nowrap}
+.non-coffee{background:var(--ink);color:var(--on-dark);padding:30px 32px;border:1px solid var(--gold);outline:1px solid var(--ink);outline-offset:4px}
+.non-coffee h3{color:#F4ECDF;font-size:24px;margin-bottom:6px}
+.non-coffee p{margin:0;color:var(--on-dark-muted)}
+.menu-photos{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.menu-photos img{width:100%;object-fit:cover;padding:8px;border:1px solid var(--line);background:var(--paper)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:250px;gap:10px}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.03)}
+.gal .big{grid-column:span 2;grid-row:span 2}
+.gal .wide{grid-column:span 2}
+
+/* visit */
+.visit-text{flex:1 1 440px;display:flex;flex-direction:column;gap:30px}
+.info{margin:0;display:grid;grid-template-columns:110px 1fr;gap:18px 20px;border-top:1px solid var(--line-dark);padding-top:26px}
+.info dt{color:var(--on-dark-faint);font-size:12px;letter-spacing:.2em;padding-top:4px}
+.info dd{margin:0;color:#F4ECDF}
+.visit-img{flex:1 1 440px;padding:10px;border:1px solid rgba(201,164,106,.5)}
+.visit-img img{width:100%;height:540px;object-fit:cover;object-position:center 70%}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* soon + footer */
+.soon{background:var(--paper);color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.soon .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 40px;padding-top:48px;padding-bottom:48px}
+.soon .pill{font-family:var(--display);font-size:14px;font-weight:600;letter-spacing:.28em;color:var(--gold-deep);margin-right:18px}
+.soon h2{display:inline;font-size:32px}
+.soon p{margin:0;max-width:560px;color:var(--text)}
+footer{background:var(--ink-2);color:var(--on-dark-muted);font-size:14px;border-top:1px solid rgba(201,164,106,.3)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-top:40px;padding-bottom:40px}
+footer p{margin:0}
+
+/* mobile */
+@media (max-width:860px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);padding:8px 28px 24px;border-bottom:1px solid rgba(201,164,106,.35)}
+  .menu.open{display:flex}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--line-dark)}
+  .menu .btn{margin-top:16px}
+  .pad{padding-top:76px;padding-bottom:76px}
+  .split{gap:44px}
+  .hero::after{inset:12px}.hero-bar{margin:0 12px 12px}
+  .card img{height:340px}
+  .story-img img,.visit-img img{height:400px}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}
+  .letters{margin-top:60px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card img,.btn{transition:none}}
+
+/* ===== admin editor ===== */
+.ek-edit-btn{position:fixed;right:20px;bottom:20px;z-index:90;display:none;align-items:center;gap:8px;min-height:48px;padding:0 22px;background:var(--gold);color:var(--ink);border:0;font-family:var(--body);font-size:14px;font-weight:500;letter-spacing:.08em;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.ek-edit-btn svg{width:18px;height:18px}
+.ek-panel{position:fixed;top:0;right:0;bottom:0;width:min(460px,100vw);z-index:100;background:var(--paper);color:var(--ink);border-left:1px solid var(--gold);display:none;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.25)}
+.ek-panel.open{display:flex}
+.ek-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;background:var(--ink);color:var(--on-dark)}
+.ek-panel-head h2{font-size:20px;color:#F4ECDF}
+.ek-x{background:none;border:0;color:var(--gold);width:44px;height:44px;font-size:26px;cursor:pointer}
+.ek-panel-body{flex:1;overflow-y:auto;padding:8px 20px 24px}
+.ek-sec{border-bottom:1px solid var(--line);padding:6px 0}
+.ek-sec>summary{cursor:pointer;list-style:none;padding:12px 0;font-family:var(--thai);font-size:17px;font-weight:500;display:flex;justify-content:space-between}
+.ek-sec>summary::after{content:"+";color:var(--gold-deep)}
+.ek-sec[open]>summary::after{content:"–"}
+.ek-f{display:flex;flex-direction:column;gap:4px;margin:0 0 12px}
+.ek-f label{font-size:13px;color:var(--muted)}
+.ek-f input,.ek-f textarea,.ek-row input{width:100%;font:inherit;font-size:15px;padding:9px 11px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:0}
+.ek-f textarea{min-height:84px;resize:vertical}
+.ek-f input:focus,.ek-f textarea:focus,.ek-row input:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
+.ek-group{border:1px solid var(--line);background:#fff;padding:12px;margin:0 0 14px}
+.ek-row{display:grid;grid-template-columns:1.4fr 1.2fr 70px 40px;gap:6px;margin:0 0 6px;align-items:center}
+.ek-mini{background:none;border:1px solid var(--line);min-height:40px;min-width:40px;cursor:pointer;color:var(--muted);font:inherit;font-size:14px}
+.ek-mini:hover{border-color:var(--gold);color:var(--ink)}
+.ek-add{background:none;border:1px dashed var(--gold-deep);color:var(--gold-deep);min-height:40px;padding:0 14px;cursor:pointer;font:inherit;font-size:14px;margin-top:6px}
+.ek-img{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;margin:0 0 12px}
+.ek-img img{width:72px;height:72px;object-fit:cover;border:1px solid var(--line)}
+.ek-img label.ek-file{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:14px}
+.ek-img input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.ek-panel-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 20px;border-top:1px solid var(--line);background:var(--cream)}
+.ek-save{background:var(--ink);color:var(--gold);border:0;min-height:46px;padding:0 26px;font:inherit;font-size:14px;letter-spacing:.1em;cursor:pointer}
+.ek-save:disabled{opacity:.5;cursor:default}
+.ek-reset{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font:inherit;font-size:13px;min-height:44px}
+.ek-status{font-size:13px;color:var(--muted);flex:1 1 100%}
+.ek-hint{font-size:13px;color:var(--muted);margin:4px 0 12px}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="เมนูหลัก">
+    <a class="logo" href="#top" aria-label="EKIA อี่เกีย หน้าแรก"><img src="img/logo-light.png" alt="EKIA" width="400" height="221"><span>อี่เกีย</span></a>
+    <button class="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="menu" id="menu">
+      <a href="#bats">ชมค้างคาว</a>
+      <a href="#story">เรื่องของเรา</a>
+      <a href="#menu-list">เมนู</a>
+      <a href="#vibe">บรรยากาศ</a>
+      <a class="btn btn-red" data-href="mapUrl" href="https://maps.app.goo.gl/LUoCNs6GcVM7zhBQ7">ดูแผนที่</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <img data-img="hero" src="img/mountain-window.jpg" alt="" aria-hidden="true">
+  <div class="wrap hero-body">
+    <h1><img src="img/ekia-wordmark.svg" alt="EKIA" width="3036" height="844"></h1>
+    <div class="rule" aria-hidden="true"><i></i></div>
+  </div>
+  <div class="hero-bar">
+    <div class="wrap">
+      <p><strong>EST. 2024</strong> · <span data-k="location"></span></p>
+      <p><strong>เปิดทุกวัน</strong> · <span data-k="hours"></span></p>
+      <p><strong>ค้างคาวออกจากถ้ำ</strong> · <span data-k="batShort"></span></p>
+    </div>
+  </div>
+</section>
+
+<section class="paper" aria-labelledby="must">
+  <div class="wrap pad">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">MUST TRY</p>
+        <h2 id="must" data-k="mustTitle"></h2>
+      </div>
+      <a href="#menu-list" style="font-weight:500;padding:10px 0">ดูเมนูทั้งหมด →</a>
+    </div>
+    <div class="cards">
+      <figure class="card">
+        <div class="ph"><img data-img="must0" src="img/americano.jpg" alt="เครื่องดื่มแนะนำ" loading="lazy"><span class="tag" data-k="must0_tag"></span></div>
+        <figcaption><span data-k="must0_name"></span><span data-k="must0_price" data-price></span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="ph"><img data-img="must1" src="img/matcha-orange.jpg" alt="เครื่องดื่มแนะนำ" loading="lazy"></div>
+        <figcaption><span data-k="must1_name"></span><span data-k="must1_price" data-price></span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="ph"><img data-img="must2" src="img/peach-soda.jpg" alt="เครื่องดื่มแนะนำ" loading="lazy"></div>
+        <figcaption><span data-k="must2_name"></span><span data-k="must2_price" data-price></span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="ph"><img data-img="must3" src="img/milk-drinks.jpg" alt="เครื่องดื่มแนะนำ" loading="lazy"></div>
+        <figcaption><span data-k="must3_name"></span><span data-k="must3_price" data-price></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="bats">
+  <div class="wrap pad split">
+    <div class="bats-text">
+      <p class="eyebrow">KING OF BAT</p>
+      <h2>นั่งจิบกาแฟ<br>ดูฝูงค้างคาวบินออกจากถ้ำ</h2>
+      <p class="body" data-k="batBody"></p>
+      <div class="facts">
+        <div><small>เวลาแนะนำ</small><b data-k="batTime"></b></div>
+        <div><small>จุดชม</small><b data-k="batSpot"></b></div>
+      </div>
+    </div>
+    <div class="bats-video">
+      <video src="img/bats.mp4" poster="img/bats-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="วิดีโอฝูงค้างคาวบินเป็นสายเหนือภูเขาภูผาม่าน"></video>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap pad">
+    <div class="split">
+      <div class="story-img"><img data-img="story" src="img/founders.jpg" alt="ผู้ก่อตั้ง EKIA หน้าผนังไม้ร้านที่ภูผาม่าน" loading="lazy"></div>
+      <div class="story-text">
+        <p class="eyebrow">เรื่องของเรา · EST. 1 NOV 2024</p>
+        <h2>จากคนภูผาม่าน<br>ถึงทุกคนที่แวะมา</h2>
+        <p data-k="storyP1"></p>
+        <p data-k="storyP2"></p>
+        <blockquote data-k="quote" style="white-space:pre-line"></blockquote>
+      </div>
+    </div>
+    <div class="letters">
+      <div><b>E</b><p>Eternity</p><span>ความยั่งยืน</span></div>
+      <div><b>K</b><p>King of Bat</p><span>ราชาค้างคาวแห่งภูผาม่าน</span></div>
+      <div><b>I</b><p>Impression</p><span>ความประทับใจ</span></div>
+      <div><b>A</b><p>Affection</p><span>ความผูกพัน</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="paper" id="menu-list">
+  <div class="wrap pad">
+    <p class="eyebrow">MENU</p>
+    <h2 style="margin-bottom:48px">กาแฟของอี่เกีย</h2>
+    <div class="menu-grid">
+      <div class="menu-list">
+        <div id="menu-groups" style="display:flex;flex-direction:column;gap:48px"></div>
+        <div class="non-coffee">
+          <h3>ไม่ดื่มกาแฟก็มีให้เลือก</h3>
+          <p data-k="nonCoffee"></p>
+        </div>
+      </div>
+      <div class="menu-photos">
+        <img data-img="menu1" src="img/matcha.jpg" alt="เครื่องดื่มในแก้ว EKIA บนถาดไม้" style="height:440px" loading="lazy">
+        <img data-img="menu2" src="img/orange-drink.jpg" alt="เครื่องดื่มในแก้ว EKIA" style="height:300px" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vibe">
+  <div class="wrap pad">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">บรรยากาศ</p>
+        <h2>บ้านไม้ ริมบึง ใต้เงาภูเขา</h2>
+      </div>
+      <p class="lead" data-k="vibeLead"></p>
+    </div>
+    <div class="gal">
+      <img class="big" data-img="g1" src="img/interior.jpg" alt="บรรยากาศร้าน EKIA" loading="lazy">
+      <img data-img="g2" src="img/laptop.jpg" alt="บรรยากาศร้าน EKIA" loading="lazy">
+      <img data-img="g3" src="img/lake-drinks.jpg" alt="บรรยากาศร้าน EKIA" loading="lazy">
+      <img data-img="g4" src="img/corner.jpg" alt="บรรยากาศร้าน EKIA" loading="lazy">
+      <img data-img="g5" src="img/sign.jpg" alt="บรรยากาศร้าน EKIA" style="object-position:center 40%" loading="lazy">
+      <img class="wide" data-img="g6" src="img/counter.jpg" alt="บรรยากาศร้าน EKIA" style="object-position:center 35%" loading="lazy">
+      <img class="wide" data-img="g7" src="img/bats-roof.jpg" alt="ฝูงค้างคาวบินเหนือหลังคาร้าน EKIA" style="object-position:center 30%" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="visit">
+  <div class="wrap pad split">
+    <div class="visit-text">
+      <div>
+        <p class="eyebrow">VISIT US</p>
+        <h2>ที่นี่ ภูผาม่าน</h2>
+      </div>
+      <dl class="info">
+        <dt>ที่อยู่</dt><dd><span data-k="address1"></span><br><span data-k="address2"></span></dd>
+        <dt>เวลาเปิด</dt><dd>เปิดทุกวัน <span data-k="hours"></span></dd>
+        <dt>โทร</dt><dd data-k="phone"></dd>
+        <dt>Facebook</dt><dd data-k="facebook"></dd>
+        <dt>TikTok</dt><dd data-k="tiktok"></dd>
+      </dl>
+      <div class="actions">
+        <a class="btn btn-red" data-href="mapUrl" href="https://maps.app.goo.gl/LUoCNs6GcVM7zhBQ7">เปิด Google Maps</a>
+        <a class="btn btn-line" data-href="facebookUrl" href="#visit">ติดตามบน Facebook</a>
+      </div>
+    </div>
+    <div class="visit-img"><img data-img="visit" src="img/night-front.jpg" alt="หน้าร้าน EKIA ยามค่ำคืน" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="soon" aria-labelledby="soon">
+  <div class="wrap">
+    <div><span class="pill">COMING SOON</span><h2 id="soon" data-k="soonTitle"></h2></div>
+    <p data-k="soonText"></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="display:flex;align-items:flex-end;gap:12px"><img src="img/logo-light.png" alt="EKIA" style="height:40px;width:auto">อี่เกีย · ekia.co.th</p>
+    <p>© 2026 EKIA อี่เกีย ภูผาม่าน · <a href="#top">นโยบายความเป็นส่วนตัว</a></p>
+  </div>
+</footer>
+
+<!-- ===== Editor (shown only to people who can edit) ===== -->
+<button class="ek-edit-btn" id="ek-open" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+  แก้ไขเว็บ
+</button>
+<aside class="ek-panel" id="ek-panel" aria-label="แก้ไขเนื้อหาเว็บ">
+  <div class="ek-panel-head"><h2>แก้ไขเนื้อหาเว็บ</h2><button class="ek-x" id="ek-close" type="button" aria-label="ปิดหน้าแก้ไข">×</button></div>
+  <div class="ek-panel-body" id="ek-body"></div>
+  <div class="ek-panel-foot">
+    <button class="ek-save" id="ek-save" type="button" disabled>บันทึก</button>
+    <button class="ek-reset" id="ek-reset" type="button">คืนค่าเริ่มต้น</button>
+    <p class="ek-status" id="ek-status" role="status">พิมพ์แก้แล้วจะเห็นผลบนหน้าเว็บทันที กดบันทึกเพื่อเก็บถาวร</p>
+  </div>
+</aside>
+
+<script>
+(function(){
+  /* ---------- mobile menu ---------- */
+  var b=document.querySelector('.burger'), m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'ปิดเมนู':'เปิดเมนู');});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});
+
+  /* ---------- default content (what everyone sees if nothing is saved) ---------- */
+  var DEFAULTS={
+    location:'ภูผาม่าน ขอนแก่น', hours:'07:00–22:00 น.', batShort:'ทุกเย็น',
+    mustTitle:'แก้วโปรดของคนภูผาม่าน',
+    must0_tag:'Signature', must0_name:'Iced Americano Shake', must0_price:'70.-',
+    must1_name:'มัทฉะ', must1_price:'[ราคา]',
+    must2_name:'เครื่องดื่มผลไม้', must2_price:'[ราคา]',
+    must3_name:'นมเย็น & สตรอว์เบอร์รี', must3_price:'[ราคา]',
+    batBody:'ทุกเย็น ฝูงค้างคาวจะบินออกจากถ้ำเป็นสายยาวผ่านท้องฟ้าเหนือหลังคาร้าน นั่งดูได้จากที่นั่งของอี่เกียเลย ไม่ต้องเดินไปไหน',
+    batTime:'[17:30–18:30 น.]', batSpot:'ลานหน้าร้าน',
+    storyP1:'อี่เกียก่อตั้งโดย คุณณัฐฐา (นิต้า) และ คุณนริน (น้อย) เปิดร้านเมื่อวันที่ 1 พฤศจิกายน 2024 ที่อำเภอภูผาม่าน จังหวัดขอนแก่น',
+    storyP2:'[เล่าเพิ่ม 2–3 ประโยค: ทำไมถึงเปิดร้าน / ที่มาของชื่ออี่เกียและมาสคอตค้างคาว]',
+    quote:'“คุณภาพและประสบการณ์ที่ดี\nคือ หัวใจของอี่เกีย”',
+    nonCoffee:'มัทฉะ ชาไทย อัญชัน นมสตรอว์เบอร์รี และโซดาผลไม้ [ใส่ชื่อเมนูและราคา]',
+    vibeLead:'ผนังไม้เก่า หลังคาสังกะสี โคมไฟสาน และหน้าต่างบานใหญ่มองเห็นบึงน้ำกับภูผาม่าน นั่งชิลหรือเปิดโน้ตบุ๊กทำงานได้ทั้งวัน',
+    address1:'EKIA อี่เกีย (Phuphaman)', address2:'[บ้านเลขที่ / หมู่] อ.ภูผาม่าน จ.ขอนแก่น',
+    phone:'[เบอร์โทร]', facebook:'EKIA อี่เกีย', tiktok:'#ekia #คาเฟ่ภูผาม่าน',
+    mapUrl:'https://maps.app.goo.gl/LUoCNs6GcVM7zhBQ7', facebookUrl:'',
+    soonTitle:'พาข้าว by EKIA',
+    soonText:'สำรับอาหารอีสานแบบ “พาข้าว” ยกมาวางกลางวงให้กินด้วยกัน ติดตามได้ที่เพจอี่เกีย',
+    menu:[
+      {name:'Signature Coffee',note:'เมนูประจำร้าน',items:[{en:'Iced Americano Shake',th:'อเมริกาโน่เย็นเขย่า',price:'70'}]},
+      {name:'Everyday Coffee',note:'ดื่มได้ทุกวัน',items:[{en:'Iced Americano',th:'อเมริกาโน่เย็น',price:'50'}]},
+      {name:'Fusion Coffee',note:'อเมริกาโน่ผสมรสชาติใหม่',items:[
+        {en:'Americano Honey Lemon',th:'อเมริกาโน่ น้ำผึ้งมะนาว',price:'75'},
+        {en:'Americano Orange',th:'อเมริกาโน่ ส้ม',price:'75'},
+        {en:'Americano Coconut Syrup',th:'อเมริกาโน่ ไซรัปมะพร้าว',price:'80'},
+        {en:'Americano Mint',th:'อเมริกาโน่ มินต์',price:'70'},
+        {en:'Americano Cold Foam',th:'อเมริกาโน่ โคลด์โฟม',price:'70'}]}
+    ],
+    images:{}
+  };
+  var IMAGE_LABELS={hero:'รูปพื้นหลังหน้าแรก',must0:'Must Try แก้วที่ 1',must1:'Must Try แก้วที่ 2',must2:'Must Try แก้วที่ 3',must3:'Must Try แก้วที่ 4',story:'รูปผู้ก่อตั้ง',menu1:'รูปข้างเมนู (บน)',menu2:'รูปข้างเมนู (ล่าง)',g1:'บรรยากาศ — รูปใหญ่',g2:'บรรยากาศ 2',g3:'บรรยากาศ 3',g4:'บรรยากาศ 4',g5:'บรรยากาศ 5',g6:'บรรยากาศ 6 (กว้าง)',g7:'บรรยากาศ 7 (กว้าง)',visit:'รูปหน้าร้าน (เดินทาง)'};
+  var FIELDS=[
+    ['ข้อมูลร้าน',[['address1','ที่อยู่ บรรทัด 1'],['address2','ที่อยู่ บรรทัด 2'],['hours','เวลาเปิด (เช่น 07:00–22:00 น.)'],['phone','เบอร์โทร'],['facebook','ชื่อเพจ Facebook'],['facebookUrl','ลิงก์เพจ Facebook (https://...)'],['tiktok','TikTok'],['mapUrl','ลิงก์ Google Maps'],['location','ที่ตั้ง (แถบหน้าแรก)']]],
+    ['Must Try',[['mustTitle','หัวข้อ'],['must0_tag','ป้ายแก้วที่ 1'],['must0_name','แก้วที่ 1 — ชื่อ'],['must0_price','แก้วที่ 1 — ราคา'],['must1_name','แก้วที่ 2 — ชื่อ'],['must1_price','แก้วที่ 2 — ราคา'],['must2_name','แก้วที่ 3 — ชื่อ'],['must2_price','แก้วที่ 3 — ราคา'],['must3_name','แก้วที่ 4 — ชื่อ'],['must3_price','แก้วที่ 4 — ราคา']]],
+    ['ชมค้างคาว',[['batShort','ข้อความสั้นในแถบหน้าแรก'],['batBody','คำอธิบาย','area'],['batTime','เวลาแนะนำ'],['batSpot','จุดชม']]],
+    ['เรื่องของเรา',[['storyP1','ย่อหน้าที่ 1','area'],['storyP2','ย่อหน้าที่ 2','area'],['quote','คำขวัญ (ขึ้นบรรทัดใหม่ได้)','area']]],
+    ['บรรยากาศ & อื่นๆ',[['vibeLead','คำอธิบายบรรยากาศ','area'],['nonCoffee','เมนูที่ไม่ใช่กาแฟ','area'],['soonTitle','Coming soon — หัวข้อ'],['soonText','Coming soon — ข้อความ','area']]]
+  ];
+
+  function clone(o){return JSON.parse(JSON.stringify(o));}
+  function merge(saved){
+    var c=clone(DEFAULTS); if(!saved||typeof saved!=='object') return c;
+    Object.keys(DEFAULTS).forEach(function(k){
+      if(k==='menu'){ if(Array.isArray(saved.menu)) c.menu=saved.menu.map(function(g){return {name:String(g&&g.name||''),note:String(g&&g.note||''),items:Array.isArray(g&&g.items)?g.items.map(function(i){return {en:String(i&&i.en||''),th:String(i&&i.th||''),price:String(i&&i.price||'')};}):[]};}); }
+      else if(k==='images'){ if(saved.images&&typeof saved.images==='object'){ Object.keys(saved.images).forEach(function(ik){var id=saved.images[ik]; if(IMAGE_LABELS[ik]&&typeof id==='string'&&/^[A-Za-z0-9_-]{6,80}$/.test(id)) c.images[ik]=id;}); } }
+      else if(typeof saved[k]==='string') c[k]=saved[k];
+    });
+    return c;
+  }
+  var ORIG_SRC={}; document.querySelectorAll('[data-img]').forEach(function(el){ORIG_SRC[el.getAttribute('data-img')]=el.getAttribute('src');});
+  function safeUrl(u){return /^https:\/\//i.test(u)?u:null;}
+
+  var content=clone(DEFAULTS);
+  function render(c){
+    document.querySelectorAll('[data-k]').forEach(function(el){
+      var k=el.getAttribute('data-k'); var v=c[k]!=null?c[k]:'';
+      el.textContent=v;
+      if(el.hasAttribute('data-price')) el.className=/^\s*\[/.test(v)?'tbc':'price';
+      if(k==='must0_tag') el.style.display=v.trim()?'':'none';
+    });
+    document.querySelectorAll('[data-href]').forEach(function(el){
+      var u=safeUrl(c[el.getAttribute('data-href')]||''); el.setAttribute('href',u||'#visit');
+    });
+    document.querySelectorAll('[data-img]').forEach(function(el){
+      var k=el.getAttribute('data-img'); var id=c.images[k];
+      el.setAttribute('src', id?('/_blob/'+id):ORIG_SRC[k]);
+    });
+    var box=document.getElementById('menu-groups'); box.textContent='';
+    c.menu.forEach(function(g){
+      var wrap=document.createElement('div');
+      var head=document.createElement('div'); head.className='group-head';
+      var h=document.createElement('h3'); h.textContent=g.name; var n=document.createElement('span'); n.textContent=g.note;
+      head.appendChild(h); head.appendChild(n); wrap.appendChild(head);
+      g.items.forEach(function(it){
+        var row=document.createElement('div'); row.className='item';
+        var l=document.createElement('div'); var en=document.createElement('p'); en.className='en'; en.textContent=it.en; var th=document.createElement('p'); th.className='th'; th.textContent=it.th;
+        l.appendChild(en); l.appendChild(th); var p=document.createElement('p'); p.className='p'; p.textContent=it.price;
+        row.appendChild(l); row.appendChild(p); wrap.appendChild(row);
+      });
+      box.appendChild(wrap);
+    });
+  }
+  render(content);
+
+  /* ---------- backend: load saved content, editor for people who can edit ---------- */
+  var db=null, assets=null, saved=JSON.stringify(content), dirty=false, saving=false;
+  var statusEl=document.getElementById('ek-status'), saveBtn=document.getElementById('ek-save');
+  function setStatus(t){statusEl.textContent=t;}
+  function markDirty(){dirty=JSON.stringify(content)!==saved; saveBtn.disabled=!dirty||saving; render(content);}
+
+  (async function(){
+    try{ db=await claude.use('db'); }catch(e){ db=null; }
+    if(db){
+      var timer=setTimeout(function(){setStatus('ยังโหลดข้อมูลที่บันทึกไว้ไม่ได้ ตอนนี้แสดงค่าเริ่มต้นอยู่');},10000);
+      try{
+        var snap=await db.doc('site/content').get();
+        clearTimeout(timer);
+        if(snap.exists){ content=merge(snap.data()); saved=JSON.stringify(content); render(content); if(panelBuilt) buildPanel(); }
+      }catch(e){ clearTimeout(timer); }
+    }
+    var user=null; try{ user=await claude.use('user'); }catch(e){}
+    var canEdit=false; try{ canEdit=user?!!(await user.canEdit()):false; }catch(e){}
+    if(!canEdit||!db) return;
+    try{ assets=await claude.use('assets'); }catch(e){ assets=null; }
+    document.getElementById('ek-open').style.display='inline-flex';
+  })();
+
+  var panel=document.getElementById('ek-panel'), body=document.getElementById('ek-body'), panelBuilt=false;
+  document.getElementById('ek-open').addEventListener('click',function(){ if(!panelBuilt) buildPanel(); panel.classList.add('open'); });
+  document.getElementById('ek-close').addEventListener('click',function(){ panel.classList.remove('open'); });
+
+  function el(tag,attrs,text){var e=document.createElement(tag); if(attrs) Object.keys(attrs).forEach(function(a){e.setAttribute(a,attrs[a]);}); if(text!=null) e.textContent=text; return e;}
+  var uid=0;
+  function field(parent,key,label,area){
+    var id='ekf'+(uid++); var f=el('div',{class:'ek-f'}); f.appendChild(el('label',{for:id},label));
+    var inp=el(area?'textarea':'input',{id:id}); if(!area) inp.type='text'; inp.value=content[key]||'';
+    inp.addEventListener('input',function(){content[key]=inp.value; markDirty();});
+    f.appendChild(inp); parent.appendChild(f);
+  }
+  function section(title,open){var d=el('details',{class:'ek-sec'}); if(open) d.open=true; d.appendChild(el('summary',null,title)); body.appendChild(d); return d;}
+
+  function buildPanel(){
+    panelBuilt=true; body.textContent='';
+    FIELDS.forEach(function(sec,i){ var d=section(sec[0],i===0); sec[1].forEach(function(f){field(d,f[0],f[1],f[2]==='area');}); });
+    /* menu editor */
+    var md=section('เมนูกาแฟ & ราคา'); var mbox=el('div'); md.appendChild(mbox);
+    function drawMenu(){
+      mbox.textContent='';
+      content.menu.forEach(function(g,gi){
+        var gb=el('div',{class:'ek-group'});
+        var gr=el('div',{class:'ek-row',style:'grid-template-columns:1.3fr 1.3fr 40px'});
+        var gn=el('input',{'aria-label':'ชื่อหมวด',placeholder:'ชื่อหมวด'}); gn.value=g.name; gn.addEventListener('input',function(){g.name=gn.value;markDirty();});
+        var gt=el('input',{'aria-label':'คำอธิบายหมวด',placeholder:'คำอธิบาย'}); gt.value=g.note; gt.addEventListener('input',function(){g.note=gt.value;markDirty();});
+        var gx=el('button',{class:'ek-mini',type:'button','aria-label':'ลบหมวดนี้'},'×'); gx.addEventListener('click',function(){content.menu.splice(gi,1);markDirty();drawMenu();});
+        gr.appendChild(gn); gr.appendChild(gt); gr.appendChild(gx); gb.appendChild(gr);
+        gb.appendChild(el('p',{class:'ek-hint'},'ชื่อภาษาอังกฤษ · ชื่อไทย · ราคา'));
+        g.items.forEach(function(it,ii){
+          var r=el('div',{class:'ek-row'});
+          [['en','ชื่อเมนู (EN)'],['th','ชื่อไทย'],['price','ราคา']].forEach(function(p){var x=el('input',{'aria-label':p[1],placeholder:p[1]}); x.value=it[p[0]]; x.addEventListener('input',function(){it[p[0]]=x.value;markDirty();}); r.appendChild(x);});
+          var del=el('button',{class:'ek-mini',type:'button','aria-label':'ลบเมนูนี้'},'×'); del.addEventListener('click',function(){g.items.splice(ii,1);markDirty();drawMenu();}); r.appendChild(del);
+          gb.appendChild(r);
+        });
+        var add=el('button',{class:'ek-add',type:'button'},'+ เพิ่มเมนู'); add.addEventListener('click',function(){g.items.push({en:'',th:'',price:''});markDirty();drawMenu();});
+        gb.appendChild(add); mbox.appendChild(gb);
+      });
+      var addg=el('button',{class:'ek-add',type:'button'},'+ เพิ่มหมวดเมนู'); addg.addEventListener('click',function(){content.menu.push({name:'หมวดใหม่',note:'',items:[{en:'',th:'',price:''}]});markDirty();drawMenu();});
+      mbox.appendChild(addg);
+    }
+    drawMenu();
+    /* images */
+    var idd=section('รูปภาพ');
+    if(!assets){ idd.appendChild(el('p',{class:'ek-hint'},'การอัปโหลดรูปใช้ได้เฉพาะเจ้าของหรือผู้มีสิทธิ์แก้ไข')); }
+    Object.keys(IMAGE_LABELS).forEach(function(k){
+      var row=el('div',{class:'ek-img'}); var th=el('img',{alt:''}); th.src=content.images[k]?('/_blob/'+content.images[k]):ORIG_SRC[k];
+      var right=el('div'); right.appendChild(el('p',{style:'margin:0 0 6px;font-size:14px'},IMAGE_LABELS[k]));
+      var id='eki'+(uid++); var lab=el('label',{class:'ek-file',for:id},'เปลี่ยนรูป'); var inp=el('input',{type:'file',id:id,accept:'image/*'});
+      inp.addEventListener('change',async function(){
+        var file=inp.files&&inp.files[0]; if(!file||!assets) return;
+        lab.textContent='กำลังอัปโหลด…';
+        try{ var r=await assets.upload(file); content.images[k]=r.id; th.src='/_blob/'+r.id; lab.textContent='เปลี่ยนรูป'; markDirty(); setStatus('อัปโหลดรูปแล้ว กดบันทึกเพื่อใช้รูปนี้'); }
+        catch(e){ lab.textContent='เปลี่ยนรูป'; setStatus('อัปโหลดไม่สำเร็จ ลองไฟล์ที่เล็กกว่า 20 MB'); }
+        inp.value='';
+      });
+      right.appendChild(lab); right.appendChild(inp);
+      if(content.images[k]){ var rv=el('button',{class:'ek-reset',type:'button'},'ใช้รูปเดิม'); rv.addEventListener('click',function(){delete content.images[k]; th.src=ORIG_SRC[k]; markDirty(); rv.remove();}); right.appendChild(rv); }
+      row.appendChild(th); row.appendChild(right); idd.appendChild(row);
+    });
+  }
+
+  saveBtn.addEventListener('click',async function(){
+    if(!db||saving||!dirty) return;
+    saving=true; saveBtn.disabled=true; saveBtn.textContent='กำลังบันทึก…';
+    try{ await db.doc('site/content').set(clone(content)); saved=JSON.stringify(content); dirty=false; setStatus('บันทึกแล้ว ✓ ผู้ที่ล็อกอิน claude.ai จะเห็นทันที — บอก Claude ให้ "เผยแพร่" เพื่อให้ทุกคนเห็น'); }
+    catch(e){ setStatus(e&&e.code==='invalid_argument'?'บัญชีนี้ไม่มีสิทธิ์บันทึก':'บันทึกไม่สำเร็จ ลองอีกครั้ง'); }
+    saving=false; saveBtn.textContent='บันทึก'; saveBtn.disabled=!dirty;
+  });
+
+  var resetArmed=false, resetBtn=document.getElementById('ek-reset');
+  resetBtn.addEventListener('click',function(){
+    if(!resetArmed){ resetArmed=true; resetBtn.textContent='กดอีกครั้งเพื่อยืนยันคืนค่าเริ่มต้น'; setTimeout(function(){resetArmed=false;resetBtn.textContent='คืนค่าเริ่มต้น';},4000); return; }
+    resetArmed=false; resetBtn.textContent='คืนค่าเริ่มต้น'; content=clone(DEFAULTS); markDirty(); buildPanel(); setStatus('คืนค่าเริ่มต้นแล้ว กดบันทึกเพื่อยืนยัน');
+  });
+  window.addEventListener('beforeunload',function(e){ if(dirty){ e.preventDefault(); e.returnValue=''; } });
+})();
+</script>
+</body>
+</html>
